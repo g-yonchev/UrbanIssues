@@ -172,21 +172,5 @@ namespace UrbanIssues.Api.Controllers
 			this.Data.SaveChanges();
 			return this.Ok();
 		}
-
-		[HttpGet]
-		public IHttpActionResult Cities(string city)
-		{
-			var issues = this.Data.Issues.All().Where(i => i.City.Name == city).Take(10).Select(i => new ResponseIssueModel
-			{
-				Category = i.Category.Name,
-				City = i.City.Name,
-				CreatedOn = i.CreatedOn,
-				Likes = i.Likes,
-				User = i.User.UserName,
-				Image = i.Images.FirstOrDefault().Url
-			}).ToList();
-
-			return this.Ok(issues);
-		}
 	}
 }
