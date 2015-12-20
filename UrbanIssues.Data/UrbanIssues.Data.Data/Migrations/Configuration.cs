@@ -81,7 +81,13 @@ namespace UrbanIssues.Data.Data.Migrations
 			};
 			context.Categories.Add(buildings);
 
-			context.SaveChanges();
+            var other = new Category
+            {
+                Name = "Other"
+            };
+		    context.Categories.Add(other);
+
+            context.SaveChanges();
 
 		}
 	}
