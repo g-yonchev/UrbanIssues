@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UrbanIssues.Pages;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,6 +23,26 @@ namespace UrbanIssues.Views
 		public BottomTabBar()
 		{
 			this.InitializeComponent();
+		}
+
+		private void OnRegisterButtonClick(object sender, RoutedEventArgs e)
+		{
+			(Window.Current.Content as Frame).Navigate(typeof(RegisterPage));
+		}
+
+		private void OnLogInButtonClick(object sender, RoutedEventArgs e)
+		{
+			(Window.Current.Content as Frame).Navigate(typeof(LoginPage));
+		}
+
+		private void OnLogOutButtonClick(object sender, RoutedEventArgs e)
+		{
+			(Window.Current.Content as Frame).Navigate(typeof(MainPage));
+		}
+
+		private void OnAboutButtonClick(object sender, RoutedEventArgs e)
+		{
+			(Window.Current.Content as Frame).Navigate(typeof(AboutPage));
 		}
 	}
 }

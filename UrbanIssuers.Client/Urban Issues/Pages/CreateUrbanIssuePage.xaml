@@ -30,7 +30,10 @@
 				<TextBox Name="Category"></TextBox>
 
 				<TextBlock>Description</TextBlock>
-				<TextBox Name="Description"></TextBox>
+				<TextBox Name="Description"
+						 Height="80"
+						 AcceptsReturn="True"
+						 ScrollViewer.VerticalScrollBarVisibility="Visible"></TextBox>
 
 				<TextBlock>Location</TextBlock>
 				<Button Name="Location" Click="OnLocationButtonClick">0</Button>
@@ -43,6 +46,7 @@
 				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition Height="60"/>
+						<RowDefinition Height="30"/>
 						<RowDefinition Height="1*"/>
 					</Grid.RowDefinitions>
 					<Grid Grid.Row="0">
@@ -50,19 +54,39 @@
 							<ColumnDefinition Width="1*"/>
 							<ColumnDefinition Width="1*"/>
 							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="1*"/>
 						</Grid.ColumnDefinitions>
 						<Grid Grid.Column="0">
-							<Button Name="AddPicture" Click="OnAddPictureButtonClick">Add Picture</Button>
+							<Button Name="AddPicture" Click="OnAddPictureButtonClick">Camera</Button>
 						</Grid>
 						<Grid Grid.Column="1">
-							<Button Name="CreateIssue" Click="OnCreateIssueButtonClick">Create Issue</Button>
+							<Button Name="ChoosePicture" Click="OnChoosePictureButtonClick">Galery</Button>
 						</Grid>
 						<Grid Grid.Column="2">
+							<Button Name="CreateIssue" Click="OnCreateIssueButtonClick">Create</Button>
+						</Grid>
+						<Grid Grid.Column="3">
 							<Button Name="CancelIssue" Click="OnCancelIssueButtonClick">Cancel</Button>
 						</Grid>
 					</Grid>
 					<Grid Grid.Row="1">
-						<StackPanel Name="PicturesToAdd">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="60"/>
+						</Grid.ColumnDefinitions>
+						<Grid Grid.Column="0">
+							<TextBox Name="Url" PlaceholderText="Url"/>
+						</Grid>
+						<Grid Grid.Column="1">
+							<Button Name="AddUrl" HorizontalAlignment="Right"  Click="OnAddUrlButtonClick">Add</Button>
+						</Grid>
+					</Grid>
+					<Grid Grid.Row="2">
+						<StackPanel Orientation="Horizontal" Name="PicturesToAdd"
+									ScrollViewer.HorizontalScrollMode="Enabled"
+									ScrollViewer.HorizontalScrollBarVisibility="Auto"
+									ScrollViewer.IsHorizontalRailEnabled="True">
+
 						</StackPanel>
 					</Grid>
 				</Grid>

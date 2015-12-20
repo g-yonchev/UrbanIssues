@@ -7,6 +7,8 @@ using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Capture;
+using Windows.Media.MediaProperties;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,6 +29,7 @@ namespace UrbanIssues.Pages
 	{
 		private Geolocator geolocator;
 		private CameraCaptureUI camera;
+		private IList<string> pictures;
 
 		public CreateUrbanIssuePage()
 		{
@@ -41,8 +44,12 @@ namespace UrbanIssues.Pages
 			var img = new Image();
 			img.Width = 200;
 			img.Height = 200;
+			img.Margin = new Thickness(10.0);
 			img.Source = new BitmapImage(new Uri(photo.Path));
 			this.PicturesToAdd.Children.Add(img);
+
+			// collect images
+			this.pictures.Add(photo.Path);
 		}
 
 		// Location
@@ -60,13 +67,40 @@ namespace UrbanIssues.Pages
 		// create Issue
 		private void OnCreateIssueButtonClick(object sender, RoutedEventArgs e)
 		{
-			
+			//send data
+			//this.pictures;
+			//this.Category;
+			//this.Description;
+			//this.LocationLatitude;
+			//this.LocationLongitude;
+
+			// navigate to this Issue
 		}
 
 		// cancel
 		private void OnCancelIssueButtonClick(object sender, RoutedEventArgs e)
 		{
+			// back
+		}
+
+
+		private void OnChoosePictureButtonClick(object sender, RoutedEventArgs e)
+		{
+			// open gallery
+		}
+
+		private void OnAddUrlButtonClick(object sender, RoutedEventArgs e)
+		{
+			var url = this.Url.Text;
+			var img = new Image();
+			img.Width = 200;
+			img.Height = 200;
+			img.Margin = new Thickness(10.0);
+			img.Source = new BitmapImage(new Uri(url));
+			this.PicturesToAdd.Children.Add(img);
 			
+			// collect images
+			this.pictures.Add(url);
 		}
 	}
 }
