@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using UrbanIssues.Api.Models.Pictures;
-
-namespace UrbanIssues.Api.Models.Issues
+﻿namespace UrbanIssues.Api.Models.Issues
 {
-	public class RequestIssueModel
+    using System.Collections.Generic;
+    public class RequestIssueModel
 	{
 		public string Description { get; set; }
 

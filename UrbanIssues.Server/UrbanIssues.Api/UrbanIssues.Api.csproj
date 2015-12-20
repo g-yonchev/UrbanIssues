@@ -227,7 +227,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IssuesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -246,8 +245,8 @@
     <Compile Include="Models\Issues\RequestIssueModel.cs" />
     <Compile Include="Models\Issues\ResponseIssueDetailModel.cs" />
     <Compile Include="Models\Issues\ResponseIssueModel.cs" />
-    <Compile Include="Models\Pictures\RequestModelPicture.cs" />
-    <Compile Include="Models\Pictures\ResponseModelPicture.cs" />
+    <Compile Include="Models\Images\RequestModelImage.cs" />
+    <Compile Include="Models\Images\ResponseModelImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
