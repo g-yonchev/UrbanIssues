@@ -103,6 +103,7 @@ namespace UrbanIssues.Api.Controllers
 			var createdOn = DateTime.Now;
 			var issue = new Issue
 			{
+                Title = model.Title,
 				Description = model.Description,
 				User = currentUser,
 				Category = category,
