@@ -13,6 +13,12 @@
         }
 
         [HttpGet]
+        public IHttpActionResult Get()
+        {
+            return this.Ok(this.Data.Categories.All());
+        }
+
+        [HttpGet]
         public IHttpActionResult Get(string category)
         {
             var issues = this.Data.Issues.All().Where(i => i.Category.Name == category).Take(10).Select(i => new ResponseIssueModel
