@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Urban_Issues_Client.Pages.RegisterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Urban_Issues_Client.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Register" Grid.Row="0" Style="{StaticResource CenteredTextBlockStyle}" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" SelectionChanged="textBlock_SelectionChanged"/>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Email" TextAlignment="Center" Padding="10"></TextBlock>
+            <TextBox PlaceholderText="Enter your email" Padding="10" Margin="10, 0, 10, 10"></TextBox>
+            <TextBlock Text="Password" TextAlignment="Center" Padding="10"></TextBlock>
+            <TextBox PlaceholderText="Enter your password" Padding="10" Margin="10, 0"></TextBox>
+            <Button HorizontalAlignment="Center" Margin="20" Content="Register" Click="Button_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Page>
