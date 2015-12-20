@@ -118,40 +118,6 @@ namespace UrbanIssues.Api.Controllers
 			return this.Ok(issue.Id);
 		}
 
-		// TODO doesnt work?!?!?! I DO NOT KNOW WHY?? WTF?
-		[HttpPost]
-		[Authorize]
-		[Route("comment/{id}")]
-		public IHttpActionResult Post(int id, RequestCommentModel model)
-		{
-			var currentUserId = User.Identity.GetUserId();
-			var currentUser = this.Data.Users.All().FirstOrDefault(x => x.Id == currentUserId);
-
-			if (currentUser == null)
-			{
-				return this.BadRequest("Invalid user token! Please login again!");
-			}
-
-			var issue = this.Data.Issues.All().Where(i => i.Id == id).FirstOrDefault();
-
-			if (issue == null)
-			{
-				return this.BadRequest();
-			}
-
-			var newComment = new Comment
-			{
-				UserId = currentUserId,
-				Content = model.Content,
-				IssueId = id
-			};
-
-			this.Data.Comments.Add(newComment);
-			this.Data.SaveChanges();
-
-			return this.Ok();
-		}
-
 		[HttpPut]
 		[Authorize]
 		public IHttpActionResult Put(int id)
