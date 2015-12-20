@@ -7,6 +7,6 @@ namespace UrbanIssues.Api.Models.Pictures
 {
 	public class ResponseModelPicture
 	{
-		public string UrlPath { get; set; }
+		public string Url { get; set; }
 	}
 }

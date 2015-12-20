@@ -10,7 +10,7 @@ namespace UrbanIssues.Api.Models.Issues
 	{
 		public string User { get; set; }
 
-		public ICollection<string> Urls { get; set; }
+		public ICollection<string> Images { get; set; }
 
 		public DateTime CreatedOn { get; set; }
 

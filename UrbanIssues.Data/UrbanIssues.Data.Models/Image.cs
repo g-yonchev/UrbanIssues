@@ -9,13 +9,7 @@ namespace UrbanIssues.Data.Models
 	public class Image
 	{
 		public int Id { get; set; }
-
-		public byte[] Content { get; set; }
-
-		public string UrlPath { get; set; }
-
-		public int IssueId { get; set; }
-
-		public Issue Issue { get; set; }
+		
+		public string Url { get; set; }
 	}
 }

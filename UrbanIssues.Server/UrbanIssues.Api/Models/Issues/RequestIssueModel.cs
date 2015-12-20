@@ -10,7 +10,7 @@ namespace UrbanIssues.Api.Models.Issues
 	{
 		public string Description { get; set; }
 
-		public ICollection<RequestModelPicture> Images { get; set; }
+		public ICollection<string> Images { get; set; }
 
 		public string City { get; set; }
 

@@ -29,7 +29,7 @@ namespace UrbanIssues.Api.Controllers
 				CreatedOn = i.CreatedOn,
 				Likes = i.Likes,
 				User = i.User.UserName,
-				Url = i.Images.FirstOrDefault().Url
+				Image = i.Images.FirstOrDefault().Url
 			}).ToList();
 
 			return this.Ok(issues);
@@ -60,7 +60,7 @@ namespace UrbanIssues.Api.Controllers
 				CreatedOn = issue.CreatedOn,
 				Likes = issue.Likes,
 				User = issue.User.UserName,
-				Urls = urls,
+				Images = urls,
 				Comments = comments
 			};
 
@@ -183,7 +183,7 @@ namespace UrbanIssues.Api.Controllers
 				CreatedOn = i.CreatedOn,
 				Likes = i.Likes,
 				User = i.User.UserName,
-				Url = i.Images.FirstOrDefault().Url
+				Image = i.Images.FirstOrDefault().Url
 			}).ToList();
 
 			return this.Ok(issues);
@@ -199,7 +199,7 @@ namespace UrbanIssues.Api.Controllers
 				CreatedOn = i.CreatedOn,
 				Likes = i.Likes,
 				User = i.User.UserName,
-				Url = i.Images.FirstOrDefault().Url
+				Image = i.Images.FirstOrDefault().Url
 			}).ToList();
 
 			return this.Ok(issues);
