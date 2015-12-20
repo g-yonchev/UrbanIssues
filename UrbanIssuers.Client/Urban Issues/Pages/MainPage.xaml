@@ -75,7 +75,7 @@
 
 							<!-- Issue city -->
 							<Grid Grid.Row="0">
-								<TextBlock Text="{Binding } Sofia"/>
+								<TextBlock Text="{Binding Sofia}"/>
 							</Grid>
 
 							<!-- Issue content -->
