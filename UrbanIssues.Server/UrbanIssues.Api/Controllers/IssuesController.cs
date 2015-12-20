@@ -24,6 +24,7 @@ namespace UrbanIssues.Api.Controllers
 		{
 			var issues = this.Data.Issues.All().Take(10).Select(i => new ResponseIssueModel
 			{
+                Title = i.Title,
 				Category = i.Category.Name,
 				City = i.City.Name,
 				CreatedOn = i.CreatedOn,
@@ -55,6 +56,8 @@ namespace UrbanIssues.Api.Controllers
 
 			var issueToReturn = new ResponseIssueDetailModel
 			{
+                Title = issue.Title,
+                Description = issue.Description,
 				Category = issue.Category.Name,
 				City = issue.City.Name,
 				CreatedOn = issue.CreatedOn,

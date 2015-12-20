@@ -242,8 +242,8 @@
     <Compile Include="Infrastructure\Validation\ValidateModelAttribute.cs" />
     <Compile Include="Models\Accounts\AccountBindingModels.cs" />
     <Compile Include="Models\Accounts\AccountViewModels.cs" />
-    <Compile Include="Models\Comments\RequestCommentModel.cs" />
-    <Compile Include="Models\Comments\ResponseCommentModel.cs" />
+    <Compile Include="Models\Issues\Comments\RequestCommentModel.cs" />
+    <Compile Include="Models\Issues\Comments\ResponseCommentModel.cs" />
     <Compile Include="Models\Issues\RequestIssueModel.cs" />
     <Compile Include="Models\Issues\ResponseIssueDetailModel.cs" />
     <Compile Include="Models\Issues\ResponseIssueModel.cs" />

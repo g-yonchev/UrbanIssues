@@ -10,6 +10,10 @@ namespace UrbanIssues.Api.Models.Issues
 	{
 		public string User { get; set; }
 
+        public string Title { get; set; }
+
+        public string Description { get; set; }
+
 		public ICollection<string> Images { get; set; }
 
 		public DateTime CreatedOn { get; set; }
