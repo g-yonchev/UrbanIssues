@@ -1,8 +1,8 @@
-﻿using UrbanIssues.Data.Models;
-
-namespace UrbanIssues.Data.Data.Repositories
+﻿namespace UrbanIssues.Data.Data.Repositories
 {
-	public interface IUrbanIssuesData
+    using UrbanIssues.Data.Models;
+
+    public interface IUrbanIssuesData
 	{
 		IRepository<User> Users { get; }
 
