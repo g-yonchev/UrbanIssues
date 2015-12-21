@@ -37,7 +37,7 @@
             return result;
         }
 
-        public static async Task<IEnumerable<IssueViewModel>> GetIssues(string token)
+        public static async Task<HttpResponseMessage> GetIssues(string token)
         {
             var client = new HttpClient();
             var url = BASE_URL + "/api/issues";
@@ -47,9 +47,8 @@
             //request.Content = new HttpStringContent(JsonConvert.SerializeObject(user), Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
             request.Headers.Add("Authorization", String.Format("Bearer {0}", token));
             var response = await client.SendRequestAsync(request);
-            var result = await response.Content.ReadAsStringAsync();
-            var resultConverted = JsonConvert.DeserializeObject<IEnumerable<IssueViewModel>>(result);
-            return resultConverted;
+            
+            return response;
         }
     }
 }
