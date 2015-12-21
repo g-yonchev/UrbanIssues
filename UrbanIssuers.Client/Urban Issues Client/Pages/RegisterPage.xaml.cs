@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Urban_Issues_Client.Pages
 {
+    using Urban_Issues_Client.Data;
+    using Urban_Issues_Client.Data.Models;
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -27,9 +29,15 @@ namespace Urban_Issues_Client.Pages
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RegisterButtonClick(object sender, RoutedEventArgs e)
         {
+            RegisterUserModel model = new RegisterUserModel();
+            model.Email = this.EmailInput.Text;
+            model.Password = this.PasswordInput.Password;
+            model.ConfirmPassword = this.ConfirmPasswordInput.Password;
 
+            Data.RegisterUser(model);   
         }
+        
     }
 }
