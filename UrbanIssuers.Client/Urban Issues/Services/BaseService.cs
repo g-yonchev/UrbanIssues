@@ -31,7 +31,7 @@ namespace UrbanIssues.Services
 		{
 			try
 			{
-				var content = new StringContent("grant_type=password&username=" + data.Username + "&password=" + data.Password);
+				var content = new StringContent("grant_type=password&username=" + "data.Username" + "&password=" + "data.Password");
 				var response = await Client.PostAsync(this.baseUrl + "Token", content);
 				var responseContent = await response.Content.ReadAsStringAsync();
 				var responseContentAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);

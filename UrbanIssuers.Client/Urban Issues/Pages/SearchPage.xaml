@@ -26,7 +26,7 @@
 			<TextBlock>City</TextBlock>
 			<TextBox Name="City"></TextBox>
 			<TextBlock>Category</TextBlock>
-			<TextBox Name="category"></TextBox>
+			<TextBox Name="Category"></TextBox>
 		</StackPanel>
 	</Grid>
 </Page>
