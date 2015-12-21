@@ -14,11 +14,13 @@
         </Grid.DataContext>
 
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition Height="0.5*"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="Title" Grid.Row="0" FontSize="32" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Home Page" VerticalAlignment="Top"/>
-        <TextBlock x:Name="IssuesTitle" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Issues" VerticalAlignment="Top"/>
+		<TextBlock x:Name="Title" Grid.Row="0" FontSize="32" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Home Page" VerticalAlignment="Top"/>
+		<Button x:Name="CreateIssue" Grid.Row="1" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OnCreateIssueButtonClick">Create Issue</Button>
+		<TextBlock x:Name="IssuesTitle" Grid.Row="2" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Issues" VerticalAlignment="Top"/>
         <ItemsControl Grid.Row="1" ItemsSource="{Binding Path=Issues, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,93.333,0,281">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>

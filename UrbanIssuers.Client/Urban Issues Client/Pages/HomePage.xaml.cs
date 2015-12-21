@@ -40,5 +40,10 @@ namespace Urban_Issues_Client.Pages
         {
             var issues = await Data.GetIssues(token);
         }
-    }
+
+		private void OnCreateIssueButtonClick(object sender, RoutedEventArgs e)
+		{
+			this.Frame.Navigate(typeof(CreateIssuePage));
+		}
+	}
 }
