@@ -47,7 +47,7 @@
             //request.Content = new HttpStringContent(JsonConvert.SerializeObject(user), Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
             request.Headers.Add("Authorization", String.Format("Bearer {0}", token));
             var response = await client.SendRequestAsync(request);
-            
+
             return response;
         }
     }
