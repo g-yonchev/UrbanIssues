@@ -5,12 +5,12 @@
     xmlns:local="using:Urban_Issues_Client.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModel="using:Urban_Issues_Client"
+    xmlns:viewModel="using:Urban_Issues_Client.ViewModels"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.DataContext>
-            <viewModel:MainPage></viewModel:MainPage>
+            <viewModel:IssuesViewModel></viewModel:IssuesViewModel>
         </Grid.DataContext>
 
         <Grid.RowDefinitions>
@@ -19,10 +19,12 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="Title" Grid.Row="0" FontSize="32" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Home Page" VerticalAlignment="Top"/>
         <TextBlock x:Name="IssuesTitle" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Issues" VerticalAlignment="Top"/>
-        <!--<ItemsControl ItemsSource="{Binding Path=Something}">
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Path=Issues, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,93.333,0,281">
             <ItemsControl.ItemTemplate>
-                
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}"></TextBlock>
+                </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>-->
+        </ItemsControl>
     </Grid>
 </Page>

@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Urban_Issues_Client
 {
+    using Windows.Networking.Sockets;
     using Pages;
 
     /// <summary>
@@ -24,8 +25,6 @@ namespace Urban_Issues_Client
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public string Something { get; set; }
-
         public MainPage()
         {
             this.InitializeComponent();
@@ -38,6 +37,7 @@ namespace Urban_Issues_Client
 
         private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
+            
             this.Frame.Navigate(typeof(LoginPage));
         }
     }
