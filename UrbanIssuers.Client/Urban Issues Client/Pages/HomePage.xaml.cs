@@ -17,31 +17,28 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Urban_Issues_Client.Pages
 {
+    using Data;
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public class DaiMu
-    {
-        
-    }
     public sealed partial class HomePage : Page
     {
+        private string token;
         public HomePage()
         {
             this.InitializeComponent();
         }
-    }
-    public class IssuesViewModel
-    {
-        public IEnumerable<IssueViewModel> Issues { get; set; }
-    }
 
-    public class IssueViewModel
-    {
-        public string User { get; set; }
-        public string Title { get; set; }
-        public string Image { get; set; }
-        public string Likes { get; set; }
-        public string Category { get; set; }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var parameter = e.Parameter as LoginResultToken;
+            this.token = parameter.AccessToken;
+            GetIssues(this.token);
+        }
+
+        private async void GetIssues(string token)
+        {
+            var issues = await Data.GetIssues(token);
+        }
     }
 }

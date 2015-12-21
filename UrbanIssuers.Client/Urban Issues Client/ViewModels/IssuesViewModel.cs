@@ -2,7 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
-    using Data.Models;
+    using Data;
+    using Pages;
+    using IssueViewModel = Data.Models.IssueViewModel;
 
     public class IssuesViewModel
     {
@@ -11,6 +13,7 @@
         public IssuesViewModel()
         {
             this.Issues = new List<IssueViewModel>();
+            //Data.GetIssues(LoginResultToken)
             Issues.Add(new IssueViewModel()
             {
                 Title = "davam mu pak",

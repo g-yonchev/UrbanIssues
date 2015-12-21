@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Urban_Issues_Client.Pages
 {
+    using Windows.UI.Notifications;
     using Data;
     using Data.Models;
     using Newtonsoft.Json;
@@ -41,8 +42,8 @@ namespace Urban_Issues_Client.Pages
             if (response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();
-                JsonConvert.DeserializeObject<LoginResultToken>(content);
-                this.Frame.Navigate(typeof(HomePage));
+                var token = JsonConvert.DeserializeObject<LoginResultToken>(content);
+                this.Frame.Navigate(typeof(HomePage), token);
             }
             else
             {
@@ -54,6 +55,11 @@ namespace Urban_Issues_Client.Pages
         {
             this.Frame.Navigate(typeof (RegisterPage));
         }
+
+        //public static string RequestToken()
+        //{
+        //    return 
+        //}
     }
 
     public class LoginResultToken

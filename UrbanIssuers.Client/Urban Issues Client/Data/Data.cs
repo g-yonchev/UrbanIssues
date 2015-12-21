@@ -1,6 +1,7 @@
 ﻿namespace Urban_Issues_Client.Data
 {
     using System;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Windows.Web.Http;
     using Windows.Web.Http.Headers;
@@ -34,6 +35,21 @@
             var response = await client.SendRequestAsync(request);
             bool result = response.IsSuccessStatusCode;
             return result;
+        }
+
+        public static async Task<IEnumerable<IssueViewModel>> GetIssues(string token)
+        {
+            var client = new HttpClient();
+            var url = BASE_URL + "/api/issues";
+            var request = new HttpRequestMessage(HttpMethod.Get, new Uri(url));
+
+            client.DefaultRequestHeaders.Accept.Add(new HttpMediaTypeWithQualityHeaderValue("application/json"));
+            //request.Content = new HttpStringContent(JsonConvert.SerializeObject(user), Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
+            request.Headers.Add("Authorization", String.Format("Bearer {0}", token));
+            var response = await client.SendRequestAsync(request);
+            var result = await response.Content.ReadAsStringAsync();
+            var resultConverted = JsonConvert.DeserializeObject<IEnumerable<IssueViewModel>>(result);
+            return resultConverted;
         }
     }
 }
