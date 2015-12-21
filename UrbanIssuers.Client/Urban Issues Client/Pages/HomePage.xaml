@@ -9,6 +9,12 @@
 	xmlns:view="using:Urban_Issues_Client.Views"
     mc:Ignorable="d">
 
+    <Page.BottomAppBar>
+        <AppBar>
+            <view:BottomTabBar/>
+        </AppBar>
+    </Page.BottomAppBar>
+
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.4*"></RowDefinition>

@@ -40,9 +40,10 @@ namespace Urban_Issues_Client.Views
 			(Window.Current.Content as Frame).Navigate(typeof(MainPage));
 		}
 
-		private void OnAboutButtonClick(object sender, RoutedEventArgs e)
+		private async void OnAboutButtonClick(object sender, RoutedEventArgs e)
 		{
-			//(Window.Current.Content as Frame).Navigate(typeof(AboutPage));
+            var url = new Uri("https://github.com/g-yonchev/UrbanIssues");
+		    await Windows.System.Launcher.LaunchUriAsync(url);
 		}
 	}
 }

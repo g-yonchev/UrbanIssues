@@ -10,9 +10,7 @@
     d:DesignWidth="400">
 
 	<StackPanel Orientation="Vertical">
-		<HyperlinkButton Grid.Row="1" Name="LogIn" HorizontalAlignment="Center" Margin="0, 0, 30, 0" Click="OnLogInButtonClick" Content="Log In"/>
-		<HyperlinkButton Grid.Row="1" Name="Register" HorizontalAlignment="Center" Margin="0, 0, 30, 0" Click="OnRegisterButtonClick" Content="Register"/>
-		<HyperlinkButton Grid.Row="1" Name="LogOut" HorizontalAlignment="Center" Margin="0, 0, 30, 0" Click="OnLogOutButtonClick" Content="Log out"/>
+        <HyperlinkButton Grid.Row="1" Name="LogOut" HorizontalAlignment="Center" Margin="0, 0, 30, 0" Click="OnLogOutButtonClick" Content="Log out"/>
 		<HyperlinkButton Grid.Row="1" Name="About" HorizontalAlignment="Center" Margin="0, 0, 30, 0" Click="OnAboutButtonClick" Content="About"/>
 	</StackPanel>
 </UserControl>
