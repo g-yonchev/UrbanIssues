@@ -50,7 +50,14 @@ namespace Urban_Issues_Client.Pages
             if (parameter != null)
             {
                 this.token = parameter.AccessToken;
-                var issues = await Data.GetIssues(token);
+                var issues = await Data.GetIssues(this.token);
+                var result = await issues.Content.ReadAsStringAsync();
+                var resultConverted = JsonConvert.DeserializeObject<List<IssueViewModel>>(result);
+                this.Issues = resultConverted;
+            }
+            else
+            {
+                var issues = await Data.GetIssues(this.token);
                 var result = await issues.Content.ReadAsStringAsync();
                 var resultConverted = JsonConvert.DeserializeObject<List<IssueViewModel>>(result);
                 this.Issues = resultConverted;
@@ -67,9 +74,9 @@ namespace Urban_Issues_Client.Pages
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-		private void OnCreateIssueButtonClick(object sender, RoutedEventArgs e)
-		{
-			this.Frame.Navigate(typeof(CreateIssuePage), this.token);
-		}
-	}
+        private void OnCreateIssueButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CreateIssuePage), this.token);
+        }
+    }
 }
