@@ -49,6 +49,10 @@ namespace Urban_Issues_Client.Pages
                 this.Frame.Navigate(typeof (LoginPage));
             }
         }
-        
+
+        private async void RedirectToLogin(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof (LoginPage));
+        }
     }
 }

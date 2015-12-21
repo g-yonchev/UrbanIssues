@@ -19,7 +19,8 @@ namespace Urban_Issues_Client.Pages
 {
     using Data;
     using Data.Models;
-    
+    using Newtonsoft.Json;
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -36,16 +37,29 @@ namespace Urban_Issues_Client.Pages
             model.Username = this.LoginEmailInput.Text;
             model.Password = this.LoginPasswordInput.Password;
 
-            var result = await Data.LoginUser(model);
-            if (!result)
+            var response = await Data.LoginUser(model);
+            if (response.IsSuccessStatusCode)
             {
-                this.LoginResult.Text = "Wrong email or password.";
+                string content = await response.Content.ReadAsStringAsync();
+                JsonConvert.DeserializeObject<LoginResultToken>(content);
+                this.Frame.Navigate(typeof(HomePage));
             }
             else
             {
-                this.LoginResult.Text = "Successful login";
-                this.Frame.Navigate(typeof(LoginPage));
+                this.LoginResult.Text = "Wrong email or password.";
             }
         }
+
+        private async void RedirectToRegister(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof (RegisterPage));
+        }
+    }
+
+    public class LoginResultToken
+    {
+
+        [JsonProperty("access_token")]
+        public string AccessToken { get; set; }
     }
 }

@@ -11,7 +11,7 @@
     {
         private const string BASE_URL = "http://localhost:58368/";
 
-        public static async Task<bool> LoginUser(LoginUserModel user)
+        public static async Task<HttpResponseMessage> LoginUser(LoginUserModel user)
         {
             user.Grant_type = "password";
             var client = new HttpClient();
@@ -19,11 +19,9 @@
             var request = new HttpRequestMessage(HttpMethod.Post, new Uri(url));
 
             client.DefaultRequestHeaders.Accept.Add(new HttpMediaTypeWithQualityHeaderValue("application/json"));
-            request.Content = new HttpStringContent(JsonConvert.SerializeObject(user), Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/x-www-form-urlencoded");
+            request.Content = new HttpStringContent(String.Format("Username={0}&Password={1}&grant_type={2}", user.Username, user.Password, user.Grant_type), Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/x-www-form-urlencoded");
             var response = await client.SendRequestAsync(request);
-            var result = await response.Content.ReadAsStringAsync();
-
-            return true;
+            return response;
         }
         public static async Task<bool> RegisterUser(RegisterUserModel user)
         {
