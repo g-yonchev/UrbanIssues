@@ -40,7 +40,6 @@ namespace UrbanIssues.Api.Controllers
 		public IHttpActionResult Get(int id)
 		{
 			var issue = this.Data.Issues.All().Where(i => i.Id == id).FirstOrDefault();
-
 			if (issue == null)
 			{
 				return this.NotFound();

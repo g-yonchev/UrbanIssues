@@ -31,6 +31,7 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
+                            
                             <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center" Text="Issue name:"></TextBlock>
                             <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center" Text="{Binding Title}"></TextBlock>
                             <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center" Text="{Binding Image}"></TextBlock>
