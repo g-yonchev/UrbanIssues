@@ -24,11 +24,17 @@
 		<TextBlock x:Name="Title" Grid.Row="1" FontSize="25" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Create Issue" VerticalAlignment="Top"/>
 		<Grid Name="PanelCreateIssue"
 			  Grid.Row="2">
-			<StackPanel>
-				<TextBlock>Category</TextBlock>
+            <StackPanel Padding="15">
+                <TextBlock Text="Title"></TextBlock>
+                <TextBox Name="TitleIssue"></TextBox>
+                
+                <TextBlock>Category</TextBlock>
 				<TextBox Name="Category"></TextBox>
 
-				<TextBlock>Description</TextBlock>
+                <TextBlock>City</TextBlock>
+                <TextBox Name="City"></TextBox>
+
+                <TextBlock>Description</TextBlock>
 				<TextBox Name="Description"
 						 Height="60"
 						 AcceptsReturn="True"
@@ -48,7 +54,7 @@
 				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition Height="60"/>
-						<RowDefinition Height="30"/>
+						<RowDefinition Height="40"/>
 						<RowDefinition Height="1*"/>
 					</Grid.RowDefinitions>
 					<Grid Grid.Row="0">
@@ -85,15 +91,16 @@
 							<Button Name="AddUrl" HorizontalAlignment="Right"  Click="OnAddUrlButtonClick">Add</Button>
 						</Grid>
 					</Grid>
-					<Grid Grid.Row="2">
-						<StackPanel Orientation="Horizontal" Name="PicturesToAdd"
+                    <Grid Grid.Row="2">
+                        <StackPanel Orientation="Horizontal" Name="PicturesToAdd"
 									ScrollViewer.HorizontalScrollMode="Enabled"
 									ScrollViewer.HorizontalScrollBarVisibility="Auto"
 									ScrollViewer.IsHorizontalRailEnabled="True">
 
-						</StackPanel>
-					</Grid>
-				</Grid>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Button HorizontalAlignment="Center" Margin="15" Content="Add issue" Click="AddNewIssue"></Button>
 			</StackPanel>
 		</Grid>
 	</Grid>

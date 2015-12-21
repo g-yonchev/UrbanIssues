@@ -47,11 +47,14 @@ namespace Urban_Issues_Client.Pages
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var parameter = e.Parameter as LoginResultToken;
-            this.token = parameter.AccessToken;
-            var issues = await Data.GetIssues(token);
-            var result = await issues.Content.ReadAsStringAsync();
-            var resultConverted = JsonConvert.DeserializeObject<List<IssueViewModel>>(result);
-            this.Issues = resultConverted;
+            if (parameter != null)
+            {
+                this.token = parameter.AccessToken;
+                var issues = await Data.GetIssues(token);
+                var result = await issues.Content.ReadAsStringAsync();
+                var resultConverted = JsonConvert.DeserializeObject<List<IssueViewModel>>(result);
+                this.Issues = resultConverted;
+            }
             OnPropertyChanged("Issues");
         }
 
@@ -66,7 +69,7 @@ namespace Urban_Issues_Client.Pages
 
 		private void OnCreateIssueButtonClick(object sender, RoutedEventArgs e)
 		{
-			this.Frame.Navigate(typeof(CreateIssuePage));
+			this.Frame.Navigate(typeof(CreateIssuePage), this.token);
 		}
 	}
 }

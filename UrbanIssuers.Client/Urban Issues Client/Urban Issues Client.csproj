@@ -99,6 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Data.cs" />
+    <Compile Include="Data\Models\AddIssueModel.cs" />
     <Compile Include="Data\Models\IssueViewModel.cs" />
     <Compile Include="Data\Models\LoginUserModel.cs" />
     <Compile Include="Data\Models\RegisterUserModel.cs" />

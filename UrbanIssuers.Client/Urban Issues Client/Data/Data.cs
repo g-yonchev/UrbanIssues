@@ -50,5 +50,19 @@
 
             return response;
         }
+
+        public static async Task<bool> AddIssue(AddIssueModel issue, string token)
+        {
+            var client = new HttpClient();
+            var url = BASE_URL + "/api/Issues";
+            var request = new HttpRequestMessage(HttpMethod.Post, new Uri(url));
+
+            client.DefaultRequestHeaders.Accept.Add(new HttpMediaTypeWithQualityHeaderValue("application/json"));
+            request.Content = new HttpStringContent(JsonConvert.SerializeObject(issue), Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
+            request.Headers.Add("Authorization", String.Format("Bearer {0}", token));
+            var response = await client.SendRequestAsync(request);
+            bool result = response.IsSuccessStatusCode;
+            return result;
+        }
     }
 }

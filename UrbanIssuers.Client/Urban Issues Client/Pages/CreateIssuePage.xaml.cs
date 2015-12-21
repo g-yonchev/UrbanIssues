@@ -20,11 +20,16 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Urban_Issues_Client.Pages
 {
-	/// <summary>
+    using Data;
+    using Data.Models;
+    using Newtonsoft.Json;
+
+    /// <summary>
 	/// An empty page that can be used on its own or navigated to within a Frame.
 	/// </summary>
 	public sealed partial class CreateIssuePage : Page
-	{
+    {
+        private string token;
 		private Geolocator geolocator;
 		private CameraCaptureUI camera;
 		private IList<string> pictures = new List<string>();
@@ -100,5 +105,30 @@ namespace Urban_Issues_Client.Pages
 			// collect images
 			this.pictures.Add(url);
 		}
-	}
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.token = e.Parameter.ToString();
+        }
+
+        private async void AddNewIssue(object sender, RoutedEventArgs e)
+	    {
+	        AddIssueModel model = new AddIssueModel();
+            model.Title = this.TitleIssue.Text;
+            model.Category = this.Category.Text;
+            model.City = this.City.Text;
+            model.Description = this.Description.Text;
+            var result = await Data.AddIssue(model, this.token);
+            if (!result)
+            {
+                //this.Result.Text = "Wrong email or password.";
+            }
+            else
+            {
+                //this.Result.Text = "Successful registration";
+                this.Frame.Navigate(typeof(HomePage));
+            }
+        }
+
+    }
 }
