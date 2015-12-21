@@ -6,43 +6,34 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:Urban_Issues_Client.ViewModels"
-    mc:Ignorable="d">
+	xmlns:view="using:Urban_Issues_Client.Views"
+	mc:Ignorable="d">
 
-    <Grid Background="White">
+	<Page.BottomAppBar>
+		<AppBar>
+			<view:BottomTabBar/>
+		</AppBar>
+	</Page.BottomAppBar>
+		
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.DataContext>
+            <viewModel:IssuesViewModel></viewModel:IssuesViewModel>
+        </Grid.DataContext>
+
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition Height="0.5*"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="Title" Grid.Row="0" FontSize="32" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Home Page" VerticalAlignment="Top"/>
-        <TextBlock x:Name="IssuesTitle" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Issues" VerticalAlignment="Top"/>
-        <ItemsControl Grid.Row="1" ItemsSource="{Binding Path=Issues, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,93.333,0,281">
+		<view:HeaderAppTitle/>
+		<TextBlock x:Name="Title" Grid.Row="1" FontSize="32" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Home Page" VerticalAlignment="Top"/>
+		<Button x:Name="CreateIssue" Grid.Row="2" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OnCreateIssueButtonClick">Create Issue</Button>
+		<TextBlock x:Name="IssuesTitle" Grid.Row="3" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Issues" VerticalAlignment="Top"/>
+        <ItemsControl Grid.Row="4" ItemsSource="{Binding Path=Issues, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,93.333,0,281">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1">
-                        <Grid HorizontalAlignment="Center">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            
-                            <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center" Text="Issue name:"></TextBlock>
-                            <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center" Text="{Binding Title}"></TextBlock>
-                            <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center" Text="{Binding Image}"></TextBlock>
-                            <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Center" Text="Posted by:"></TextBlock>
-                            <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Center" Text="{Binding User}"></TextBlock>
-                            <TextBlock Grid.Row="2" Grid.Column="0" TextAlignment="Center" Text="Rating:"></TextBlock>
-                            <TextBlock Grid.Row="3" Grid.Column="1" TextAlignment="Center" Text="{Binding Likes}"></TextBlock>
-                            <TextBlock Grid.Row="3" Grid.Column="0" TextAlignment="Center" Text="Issue category:"></TextBlock>
-                            <TextBlock Grid.Row="4" Grid.Column="1" TextAlignment="Center" Text="{Binding Category}"></TextBlock>
-                        </Grid>
-                    </Border>
+                    <TextBlock Text="{Binding Title}"></TextBlock>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

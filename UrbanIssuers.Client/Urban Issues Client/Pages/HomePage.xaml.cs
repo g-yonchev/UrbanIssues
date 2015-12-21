@@ -17,51 +17,33 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Urban_Issues_Client.Pages
 {
-    using System.ComponentModel;
     using Data;
-    using Data.Models;
-    using Newtonsoft.Json;
-    using ViewModels;
-
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomePage : Page, INotifyPropertyChanged
+    public sealed partial class HomePage : Page
     {
-        public IList<IssueViewModel> Issues { get; set; }
-
         private string token;
-
         public HomePage()
         {
-            this.Issues = new List<IssueViewModel>();
-            this.Issues.Add(new IssueViewModel()
-            {
-                Title = "Petko"
-            });
-            this.DataContext = this;
             this.InitializeComponent();
-            //GetIssues(token);
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var parameter = e.Parameter as LoginResultToken;
             this.token = parameter.AccessToken;
-            var issues = await Data.GetIssues(token);
-            var result = await issues.Content.ReadAsStringAsync();
-            var resultConverted = JsonConvert.DeserializeObject<List<IssueViewModel>>(result);
-            this.Issues = resultConverted;
-            OnPropertyChanged("Issues");
+            GetIssues(this.token);
         }
 
-        private void OnPropertyChanged(string propertyName)
+        private async void GetIssues(string token)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler == null) return;
-            handler(this, new PropertyChangedEventArgs(propertyName));
+            var issues = await Data.GetIssues(token);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-    }
+		private void OnCreateIssueButtonClick(object sender, RoutedEventArgs e)
+		{
+			this.Frame.Navigate(typeof(CreateIssuePage));
+		}
+	}
 }
