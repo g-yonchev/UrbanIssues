@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Urban_Issues_Client.Pages
 {
+    using System.Threading.Tasks;
+    using Windows.UI;
     using Urban_Issues_Client.Data;
     using Urban_Issues_Client.Data.Models;
     /// <summary>
@@ -29,14 +31,23 @@ namespace Urban_Issues_Client.Pages
             this.InitializeComponent();
         }
 
-        private void RegisterButtonClick(object sender, RoutedEventArgs e)
+        private async void RegisterButtonClick(object sender, RoutedEventArgs e)
         {
             RegisterUserModel model = new RegisterUserModel();
             model.Email = this.EmailInput.Text;
             model.Password = this.PasswordInput.Password;
             model.ConfirmPassword = this.ConfirmPasswordInput.Password;
 
-            Data.RegisterUser(model);   
+            var result = await Data.RegisterUser(model);
+            if (!result)
+            {
+                this.Result.Text = "Wrong email or password.";
+            }
+            else
+            {
+                this.Result.Text = "Successful registration";
+                this.Frame.Navigate(typeof (LoginPage));
+            }
         }
         
     }

@@ -21,6 +21,7 @@
             <TextBlock Text="Confirm password" TextAlignment="Center" Padding="10"></TextBlock>
             <PasswordBox Name="ConfirmPasswordInput" PlaceholderText="Enter your password again" Padding="10" Margin="10, 0"></PasswordBox>
             <Button HorizontalAlignment="Center" Margin="20" Content="Register" Click="RegisterButtonClick"></Button>
+            <TextBlock TextAlignment="Center" Name="Result"></TextBlock>
         </StackPanel>
     </Grid>
 </Page>

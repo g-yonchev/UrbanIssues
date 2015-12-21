@@ -36,7 +36,7 @@ namespace Urban_Issues_Client
 
         private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(RegisterPage));
+            this.Frame.Navigate(typeof(LoginPage));
         }
     }
 }

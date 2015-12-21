@@ -17,6 +17,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Urban_Issues_Client.Pages
 {
+    using Data;
+    using Data.Models;
+    
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -25,6 +28,24 @@ namespace Urban_Issues_Client.Pages
         public LoginPage()
         {
             this.InitializeComponent();
+        }
+
+        private async void LoginButtonClick(object sender, RoutedEventArgs e)
+        {
+            LoginUserModel model = new LoginUserModel();
+            model.Username = this.LoginEmailInput.Text;
+            model.Password = this.LoginPasswordInput.Password;
+
+            var result = await Data.LoginUser(model);
+            if (!result)
+            {
+                this.LoginResult.Text = "Wrong email or password.";
+            }
+            else
+            {
+                this.LoginResult.Text = "Successful login";
+                this.Frame.Navigate(typeof(LoginPage));
+            }
         }
     }
 }
