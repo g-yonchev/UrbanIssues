@@ -4,11 +4,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Urban_Issues_Client"
     RequestedTheme="Light">
-       <Application.Resources>
-        <Style TargetType="TextBlock" x:Key="CenteredTextBlockStyle">
-            <Setter Property="TextAlignment" Value="Center"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="FontSize" Value="36"></Setter>
-           </Style>
-       </Application.Resources>
+	<Application.Resources>
+		<Style TargetType="TextBlock" x:Key="CenteredTextBlockStyle">
+			<Setter Property="TextAlignment" Value="Center"></Setter>
+			<Setter Property="HorizontalAlignment" Value="Center"></Setter>
+			<Setter Property="FontSize" Value="36"></Setter>
+		</Style>
+
+		<x:String
+			x:Key="TitleText">Urban Issues</x:String>
+
+		<Style x:Key="LogoStyle"
+			   TargetType="Image">
+			<Setter Property="Source" Value="./Assets/Images/Urban-Issues-Logo.jpg"/>
+		</Style>
+
+		<Style TargetType="TextBlock"
+			   x:Key="TitleStyle">
+			<Setter Property="FontSize" Value="26"/>
+			<Setter Property="TextAlignment" Value="Center"/>
+		</Style>
+	</Application.Resources>
 </Application>

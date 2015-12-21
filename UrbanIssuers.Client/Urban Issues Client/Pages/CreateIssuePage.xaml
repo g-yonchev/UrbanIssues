@@ -17,11 +17,13 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 		<Grid.RowDefinitions>
 			<RowDefinition></RowDefinition>
-			<RowDefinition Height="8*"></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition Height="11*"></RowDefinition>
 		</Grid.RowDefinitions>
-		<TextBlock x:Name="Title" Grid.Row="0" FontSize="32" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Create Issue" VerticalAlignment="Top"/>
+		<view:HeaderAppTitle/>
+		<TextBlock x:Name="Title" Grid.Row="1" FontSize="25" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Create Issue" VerticalAlignment="Top"/>
 		<Grid Name="PanelCreateIssue"
-			  Grid.Row="1">
+			  Grid.Row="2">
 			<StackPanel>
 				<TextBlock>Category</TextBlock>
 				<TextBox Name="Category"></TextBox>

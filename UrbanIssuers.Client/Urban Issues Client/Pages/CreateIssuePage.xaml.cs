@@ -78,9 +78,9 @@ namespace Urban_Issues_Client.Pages
 		// cancel
 		private void OnCancelIssueButtonClick(object sender, RoutedEventArgs e)
 		{
-			this.Frame.Navigate(typeof(HomePage));
+			//this.Frame.Navigate(typeof(HomePage));
+			// or back
 		}
-
 
 		private void OnChoosePictureButtonClick(object sender, RoutedEventArgs e)
 		{
