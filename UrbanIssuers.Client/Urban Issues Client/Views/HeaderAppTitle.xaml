@@ -22,7 +22,7 @@
 				Style="{StaticResource LogoStyle}"/>
 		</Grid>
 		<Grid Name="panelTitleText" 
-				  Background="HotPink"
+				  Background="Azure"
 				  Grid.Column="1">
 			<TextBlock Name="textBlockTitle"
 					   Text="{StaticResource TitleText}"

@@ -63,5 +63,10 @@ namespace Urban_Issues_Client.Pages
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-    }
+
+		private void OnCreateIssueButtonClick(object sender, RoutedEventArgs e)
+		{
+			this.Frame.Navigate(typeof(CreateIssuePage));
+		}
+	}
 }
