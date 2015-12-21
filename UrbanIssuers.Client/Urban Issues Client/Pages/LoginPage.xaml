@@ -15,9 +15,9 @@
         <TextBlock x:Name="Login" Grid.Row="0" Style="{StaticResource CenteredTextBlockStyle}" TextWrapping="Wrap" Text="LOGIN" VerticalAlignment="Top" />
         <StackPanel Grid.Row="1">
             <TextBlock Text="Email" TextAlignment="Center" Padding="10"></TextBlock>
-            <TextBox Name="LoginEmailInput" PlaceholderText="Enter your email" Padding="10" Margin="10, 0"></TextBox>
+            <TextBox Name="LoginEmailInput" Text="goshopesho@abv.bg" PlaceholderText="Enter your email" Padding="10" Margin="10, 0"></TextBox>
             <TextBlock Text="Password" TextAlignment="Center" Padding="10"></TextBlock>
-            <PasswordBox Name="LoginPasswordInput" PlaceholderText="Enter your password" Padding="10" Margin="10, 0"></PasswordBox>
+            <PasswordBox Password="pass123" Name="LoginPasswordInput" PlaceholderText="Enter your password" Padding="10" Margin="10, 0"></PasswordBox>
             <Button FontSize="13" HorizontalAlignment="Center" Content="Don't have an account? Sign up here." Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Click="RedirectToRegister"></Button>
             <Button HorizontalAlignment="Center" Margin="10" Content="Login" Click="LoginButtonClick"></Button>
             <TextBlock TextAlignment="Center" Name="LoginResult"></TextBlock>

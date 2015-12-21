@@ -24,6 +24,8 @@ namespace Urban_Issues_Client
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public string Something { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();

@@ -5,10 +5,24 @@
     xmlns:local="using:Urban_Issues_Client.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:Urban_Issues_Client"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="Title" FontSize="32" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Home Page" VerticalAlignment="Top"/>
+        <Grid.DataContext>
+            <viewModel:MainPage></viewModel:MainPage>
+        </Grid.DataContext>
 
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Title" Grid.Row="0" FontSize="32" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="Home Page" VerticalAlignment="Top"/>
+        <TextBlock x:Name="IssuesTitle" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Issues" VerticalAlignment="Top"/>
+        <!--<ItemsControl ItemsSource="{Binding Path=Something}">
+            <ItemsControl.ItemTemplate>
+                
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>-->
     </Grid>
 </Page>

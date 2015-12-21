@@ -20,11 +20,28 @@ namespace Urban_Issues_Client.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    public class DaiMu
+    {
+        
+    }
     public sealed partial class HomePage : Page
     {
         public HomePage()
         {
             this.InitializeComponent();
         }
+    }
+    public class IssuesViewModel
+    {
+        public IEnumerable<IssueViewModel> Issues { get; set; }
+    }
+
+    public class IssueViewModel
+    {
+        public string User { get; set; }
+        public string Title { get; set; }
+        public string Image { get; set; }
+        public string Likes { get; set; }
+        public string Category { get; set; }
     }
 }
