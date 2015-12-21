@@ -6,9 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:Urban_Issues_Client.ViewModels"
-    mc:Ignorable="d">
+	xmlns:view="using:Urban_Issues_Client.Views"
+	mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+	<Page.BottomAppBar>
+		<AppBar>
+			<view:BottomTabBar/>
+		</AppBar>
+	</Page.BottomAppBar>
+		
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.DataContext>
             <viewModel:IssuesViewModel></viewModel:IssuesViewModel>
         </Grid.DataContext>
